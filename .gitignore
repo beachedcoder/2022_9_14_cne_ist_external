@@ -1,0 +1,12 @@
+# directories to ignore from vcs
+node_modules
+tmp
+temp
+log
+logs
+
+
+# files to ignore from vcs
+
+*.log
+*.notes
