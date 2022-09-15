@@ -1,19 +1,16 @@
-<ul >
-  {{#events}}
-    <li>
+{{#events}}
+    <div class="col-3">
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
         <p>Location: {{ location }}</p>
-        <p>Likes: {{ likes }}
-        <form method="POST" action="/event/like">
-        <input type="hidden" value="{{_id}}" name="id">
+        <p>Likes: {{likes}}</p>
+                <form method="POST" action="/event/like">
+        <input type="hidden" value="{{id}}" name="id">
         <input type="submit" value="Like">
         </form>
         <form method="POST" action="/event/unlike">
-        <input type="hidden" value="{{_id}}" name="id">
+        <input type="hidden" value="{{id}}" name="id">
         <input type="submit" value="UN-Like">
         </form>
-        </p>
-    </li>
-  {{/events}}
-</ul>
+    </div>
+{{/events}}
