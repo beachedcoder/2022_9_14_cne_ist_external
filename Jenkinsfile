@@ -67,7 +67,7 @@ pipeline {
                     }
             steps {
                 echo 'Set the image'
-                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/events-external-deployment events-external=${env.imageName}:${env.BUILD_NUMBER}"
+                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/events-external-deployment events-external=${env.imageName}:${env.BUILD_NUMBER} --namespace=events"
             }
         }     
         stage('Remove local docker image') {
