@@ -54,7 +54,7 @@ pipeline {
             steps {
                 sh "rm -rf ${WORKSPACE}/kube/"
                 echo 'Get cluster credentials'
-                sh 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project roidtc-august22-u600'
+                sh 'gcloud container clusters get-credentials ef-cluster --zone us-central1-c --project roidtc-cnd-u300'
             }
         }     
          stage('update k8s') {
@@ -67,7 +67,7 @@ pipeline {
                     }
             steps {
                 echo 'Set the image'
-                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/demo-ui-deployment demo-ui-container=${env.imageName}:${env.BUILD_NUMBER}"
+                     sh "kubectl --kubeconfig=${WORKSPACE}/kube/.kube/config set image deployment/events-external-deployment events-external=${env.imageName}:${env.BUILD_NUMBER}"
             }
         }     
         stage('Remove local docker image') {
